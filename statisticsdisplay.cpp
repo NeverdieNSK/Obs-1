@@ -10,7 +10,7 @@ StatisticsDisplay::StatisticsDisplay(Subject *weatherData) {
 
     this->weatherData = weatherData;
     weatherData->registerObserver(this);
-    this->setGeometry(600, 100, 220, 220);
+    this->setGeometry(320, 100, 220, 220);
     this->setWindowTitle("Статистика");
 
     statmax = new QLabel(this);

@@ -6,14 +6,14 @@ ForecastDisplay::ForecastDisplay(Subject *weatherData) {
     this->weatherData = weatherData;
     weatherData->registerObserver(this);
 
-    this->setGeometry(350, 100, 220, 220);
+    this->setGeometry(200, 350, 280, 100);
     this->setWindowTitle("Прогноз");
 
 
 
     foreLabel = new QLabel(this);
     foreLabel->setText("Прогноза пока нет");
-    foreLabel->setGeometry(10,10, 190, 30);
+    foreLabel->setGeometry(10,10, 380, 20);
     foreLabel->setParent(this);
 
 
@@ -32,20 +32,19 @@ void ForecastDisplay::display() {
 
     if (currentPressure > lastPressure) {
         foreLabel->setText("Ожидаем улучшение погоды");
-        foreLabel->setGeometry(10,50, 190, 30);
-        foreLabel->setParent(this);
+        foreLabel->setStyleSheet("QLabel { background-color : yellow; color : green; }");
+
           this->show();
     }
     else if (currentPressure == lastPressure) {
         foreLabel->setText("Погода усиливаеться");
-        foreLabel->setGeometry(10,50, 190, 30);
-        foreLabel->setParent(this);
+
           this->show();
     }
     else if (currentPressure < lastPressure) {
         foreLabel->setText("Остерегайтесь более прохладной дождливой погоды");
-        foreLabel->setGeometry(10,50, 190, 30);
-        foreLabel->setParent(this);
+         foreLabel->setStyleSheet("QLabel { background-color : red; color : blue; }");
+
           this->show();
     }
 
