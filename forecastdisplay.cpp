@@ -9,14 +9,14 @@ ForecastDisplay::ForecastDisplay(Subject *weatherData) {
     this->setGeometry(350, 100, 220, 220);
     this->setWindowTitle("Прогноз");
 
-/*
 
-    fore = new QLabel(this);
-    fore->setText("Прогноз 55:");
-    fore->setGeometry(10,10, 190, 30);
-    fore->setParent(this);
 
-*/
+    foreLabel = new QLabel(this);
+    foreLabel->setText("Прогноза пока нет");
+    foreLabel->setGeometry(10,10, 190, 30);
+    foreLabel->setParent(this);
+
+
 
     this->show();
 }
@@ -25,32 +25,27 @@ void ForecastDisplay::update(float t, float h, float p) {
     lastPressure = currentPressure;
     currentPressure = p;
     this->display();
+
 }
 
 void ForecastDisplay::display() {
-   // cout << "Forecast: ";
+
     if (currentPressure > lastPressure) {
-       // cout << "Improving weather on the way!"<< endl;
-        fore = new QLabel(this);
-        fore->setText("Improving weather on the way!");
-        fore->setGeometry(10,50, 190, 30);
-        fore->setParent(this);
+        foreLabel->setText("Ожидаем улучшение погоды");
+        foreLabel->setGeometry(10,50, 190, 30);
+        foreLabel->setParent(this);
           this->show();
     }
     else if (currentPressure == lastPressure) {
-        //cout << "More of the same" << endl;
-        fore = new QLabel(this);
-        fore->setText("More of the same");
-        fore->setGeometry(10,50, 190, 30);
-        fore->setParent(this);
+        foreLabel->setText("Погода усиливаеться");
+        foreLabel->setGeometry(10,50, 190, 30);
+        foreLabel->setParent(this);
           this->show();
     }
     else if (currentPressure < lastPressure) {
-       // cout << "Watch out for cooler, rainy weather" << endl;
-        fore = new QLabel(this);
-        fore->setText("Watch out for cooler, rainy weather");
-        fore->setGeometry(10,50, 190, 30);
-        fore->setParent(this);
+        foreLabel->setText("Остерегайтесь более прохладной дождливой погоды");
+        foreLabel->setGeometry(10,50, 190, 30);
+        foreLabel->setParent(this);
           this->show();
     }
 

@@ -12,9 +12,9 @@ private:
     float pr;
 
     Subject *weatherData;
-    QLabel *fore;
-    QLCDNumber *foreLCD;
-    QString *fores;
+    QLabel *foreLabel;
+   // QLCDNumber *foreLCD;
+
 
 public:
     ForecastDisplay(Subject *weatherData);
