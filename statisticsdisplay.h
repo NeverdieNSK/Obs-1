@@ -12,6 +12,7 @@ private:
     float tempSum;
     float tempAvg;
     int numReadings;
+    int CoNab;
     Subject *weatherData;
     QLabel *statmax;
     QLCDNumber *statmaxLCD;
@@ -19,6 +20,7 @@ private:
     QLCDNumber *statminLCD;
     QLabel *statavg;
     QLCDNumber *statavgLCD;
+
 
 public:
     StatisticsDisplay(Subject *weatherData);

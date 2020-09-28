@@ -7,6 +7,7 @@ StatisticsDisplay::StatisticsDisplay(Subject *weatherData) {
     numReadings = 0;
     tempAvg = 0;
 
+
     this->weatherData = weatherData;
     weatherData->registerObserver(this);
     this->setGeometry(600, 100, 220, 220);
@@ -36,19 +37,11 @@ StatisticsDisplay::StatisticsDisplay(Subject *weatherData) {
         statavg->setGeometry(10,110, 190, 30);
         statavg->setParent(this);
         statavgLCD = new QLCDNumber(this);
-        statavgLCD->setGeometry(160, 110, 80, 30);
+        statavgLCD->setGeometry(160, 110, 40, 30);
         statavgLCD->setPalette(Qt::green);
         statavgLCD->setParent(this);
-    /*
-    press = new QLabel(this);
-    press->setText("Давление:");
-    press->setGeometry(10,110, 190, 30);
-    press->setParent(this);
-    pressLCD = new QLCDNumber(this);
-    pressLCD->setGeometry(100, 110, 40, 30);
-    pressLCD->setPalette(Qt::green);
-    pressLCD->setParent(this);
-*/
+
+
 
 
     this->show();
@@ -57,7 +50,7 @@ StatisticsDisplay::StatisticsDisplay(Subject *weatherData) {
 void StatisticsDisplay::update(float t, float h, float p) {
     tempSum += t;
     numReadings++;
-    tempAvg = tempSum/numReadings;
+    tempAvg = round(tempSum/numReadings*100)/100  ;
     if (t > maxTemp) {
         maxTemp = t;
     }
