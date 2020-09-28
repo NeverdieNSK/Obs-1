@@ -9,9 +9,13 @@ class ForecastDisplay : public Observer, public DisplayElement, public QWidget {
 private:
     float currentPressure;
     float lastPressure;
+    float pr;
+
     Subject *weatherData;
     QLabel *fore;
     QLCDNumber *foreLCD;
+    QString *fores;
+
 public:
     ForecastDisplay(Subject *weatherData);
     virtual void update(float t, float h, float p);
