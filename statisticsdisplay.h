@@ -10,8 +10,16 @@ private:
     float maxTemp;
     float minTemp;
     float tempSum;
+    float tempAvg;
     int numReadings;
     Subject *weatherData;
+    QLabel *statmax;
+    QLCDNumber *statmaxLCD;
+    QLabel *statmin;
+    QLCDNumber *statminLCD;
+    QLabel *statavg;
+    QLCDNumber *statavgLCD;
+
 public:
     StatisticsDisplay(Subject *weatherData);
     virtual void update(float t, float h, float p);

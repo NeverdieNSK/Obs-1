@@ -10,6 +10,8 @@ private:
     float currentPressure;
     float lastPressure;
     Subject *weatherData;
+    QLabel *fore;
+    QLCDNumber *foreLCD;
 public:
     ForecastDisplay(Subject *weatherData);
     virtual void update(float t, float h, float p);
